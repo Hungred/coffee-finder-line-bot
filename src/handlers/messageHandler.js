@@ -15,8 +15,8 @@ export const handleTextMessage = async (event, client) => {
   }
 
   // 檢查是否點了下一頁
-  if (searchQuery.startsWith('NEXT_PAGE_')) {
-    const page = parseInt(searchQuery.split('_')[2], 10);
+  if (searchQuery.startsWith('PAGE_')) {
+    const page = parseInt(searchQuery.split('_')[1], 10);
     const replyMessage = await getCityQuickReplyMessage(page);
     await client.replyMessage(event.replyToken, replyMessage);
     return;
