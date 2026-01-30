@@ -18,8 +18,8 @@ export async function getCityQuickReplyMessage(page = 1) {
     throw new Error(`options API 錯誤 ${res.status}: ${text}`);
   }
 
-  const cities = await res.json();
-
+  const jsonData = await res.json();
+  const cities = jsonData.data.cities;
   // 計算分頁
   const start = (page - 1) * PAGE_SIZE;
   const end = start + PAGE_SIZE;

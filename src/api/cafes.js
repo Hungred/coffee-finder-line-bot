@@ -14,5 +14,7 @@ export async function fetchCafes({ searchQuery }) {
   console.log('實際打 API URL:', url.toString());
 
   const res = await fetch(url.toString());
-  return res.json();
+  const jsonData = await res.json();
+  const cafes = jsonData.data.cafes;
+  return cafes;
 }
